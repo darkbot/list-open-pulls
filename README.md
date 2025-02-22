@@ -11,9 +11,9 @@ List open pull requests via GHA
 
 **Required**: Owner of github repo you are accessing, defaults to `jkisk`.
 
-## `repo`
+## `repos`
 
-**Required**: Github repo you are accessing, defaults to `list-open-pulls`.
+**Required**: A list of github repos you are accessing, defaults to `list-open-pulls`.
 
 ## Outputs
 
