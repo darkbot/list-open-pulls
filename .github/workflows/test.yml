@@ -2,7 +2,6 @@ name: Test
 
 on:
   push:
-  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -10,10 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - id: list
+      - name: test list
+        id: list
         uses: ./
         with:
           token: ${{ secrets.GH_PAT }}
-          owner: pulumi
-          repo: registry
-      - run: echo ${{ steps.list.outputs.titles }}
+      - name: echo results
+        run: |
+          echo ${{ steps.list.outputs.titles }}
+          echo ${{ steps.list.outputs.dbg }}

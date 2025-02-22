@@ -12,13 +12,14 @@ inputs:
     required: true
     default: 'darkbot'
   repo:
-    description: 'repos'
+    description: 'repositories (can list with comma)'
     required: true
-    default: 
-      - 'list-open-pulls'
+    default: 'list-open-pulls'
 outputs:
   titles:
     description: 'list of open pr titles'
+  dbg:
+    description: 'debug info'
 runs:
   using: 'node16'
   main: 'dist/index.js'
