@@ -18,9 +18,9 @@ async function run() {
         if (_repo === "") {
             continue;
         }
-        const { data: pullRequests } = await octokit.request('GET /repos/{owner}/{_repo}/pulls?state=open', {
+        const { data: pullRequests } = await octokit.request('GET /repos/{owner}/{repo}/pulls?state=open', {
             owner,
-            _repo,
+            repo: _repo,
         });
         for (let el of pullRequests) {
             _repo.push(_repo);
