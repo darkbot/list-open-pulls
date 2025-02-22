@@ -9027,7 +9027,7 @@ async function run() {
         core.setOutput("dbg", `${pullRequests} ~ ${pullRequests.length}`);
 
         for (let el of pullRequests) {
-            const pullRequestInfo = `${_repo} [${el.number}] ${el.title}`;
+            const pullRequestInfo = `${repo} [${el.number}] ${el.title}`;
             _titles.push(pullRequestInfo);
         }
     }
