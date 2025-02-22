@@ -4,22 +4,22 @@ const github = require("@actions/github");
 async function run() {
     const myToken = core.getInput("token");
     const owner = core.getInput("owner");
-    const repos = JSON.parse(core.getInput("repos"));
+    const repos = core.getInput("repos").split(",");
 
     const octokit = github.getOctokit(myToken);
 
     let _titles = [];
     let _ids = [];
-    let _repo = [];
     for (let repo of repos) {
+        let _repo = repo.trim();
         const { data: pullRequests } = await octokit.request('GET /repos/{owner}/{repo}/pulls?state=open', {
             owner,
-            repo,
+            _repo,
         });
         for (let el of pullRequests) {
+            _repo.push(_repo);
             _ids.push(el.number);
             _titles.push(el.title);
-            _repo.push(repo);
         }
     }
     core.setOutput("repo", _repo);
