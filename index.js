@@ -23,7 +23,7 @@ async function run() {
             repo: _repo,
         });
 
-        core.setOutput("dbg_pullRequests", `${pullRequests} ~ ${pullRequests.length}`);
+        core.setOutput("dbg", `${pullRequests} ~ ${pullRequests.length}`);
 
         for (let el of pullRequests) {
             const pullRequestInfo = `${_repo} [${el.number}] ${el.title}`;

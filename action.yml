@@ -18,6 +18,8 @@ inputs:
 outputs:
   titles:
     description: 'list of open pr titles'
+  dbg:
+    description: 'debug info'
 runs:
   using: 'node16'
   main: 'dist/index.js'
