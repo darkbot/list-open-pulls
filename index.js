@@ -12,6 +12,10 @@ async function run() {
     let _ids = [];
     for (let repo of repos) {
         let _repo = repo.trim();
+        if (!_repo) {
+            continue;
+        }
+
         const { data: pullRequests } = await octokit.request('GET /repos/{owner}/{repo}/pulls?state=open', {
             owner,
             _repo,
