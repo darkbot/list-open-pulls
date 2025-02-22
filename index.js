@@ -4,7 +4,7 @@ const github = require("@actions/github");
 async function run() {
     const myToken = core.getInput("token");
     const owner = core.getInput("owner");
-    const repos = core.getInput("repos").split(",");
+    const repos = core.getInput("repo").split(",");
 
     const octokit = github.getOctokit(myToken);
 

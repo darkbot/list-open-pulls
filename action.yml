@@ -11,8 +11,8 @@ inputs:
     description: 'repo owner'
     required: true
     default: 'darkbot'
-  repos:
-    description: 'repository name'
+  repo:
+    description: 'repositories (can list with comma)'
     required: true
     default: 'list-open-pulls'
 outputs:
