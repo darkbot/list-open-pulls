@@ -22,8 +22,14 @@ async function run() {
             owner,
             repo: _repo,
         });
+
+        console.log("~~~~~~~~~~~~~~~");
+        console.log(`Pull Requests for ${_repo}: `);
+        console.log(pullRequests);
+
         for (let el of pullRequests) {
-            _titles.push(_repo +" ["+el.number+"] " + el.title);
+            const pullRequestInfo = `${_repo} [${el.number}] ${el.title}`;
+            _titles.push(pullRequestInfo);
         }
     }
     core.setOutput("titles", _titles);
