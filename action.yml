@@ -10,11 +10,11 @@ inputs:
   owner:
     description: 'repo owner'
     required: true
-    default: 'jkisk'
+    default: 'darkbot'
   repo:
-    description: 'repo'
+    description: 'repos'
     required: true
-    default: 'list-open-pulls'
+    default: ['list-open-pulls']
 outputs:
   titles:
     description: 'list of open pr titles'

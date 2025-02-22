@@ -1,6 +1,7 @@
 name: Test
 
 on:
+  push:
   pull_request:
   workflow_dispatch:
 
@@ -12,7 +13,7 @@ jobs:
       - id: list
         uses: ./
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
           owner: pulumi
           repo: registry
       - run: echo ${{ steps.list.outputs.titles }}
