@@ -17,4 +17,4 @@ jobs:
       - name: echo results
         run: |
           echo ${{ steps.list.outputs.titles }}
-          echo ${{ steps.list.outputs.dbg_pullRequests }}
+          echo ${{ steps.list.outputs.dbg }}
