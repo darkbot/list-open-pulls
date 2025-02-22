@@ -23,9 +23,9 @@ async function run() {
             repo: _repo,
         });
 
-        github.info("~~~~~~~~~~~~~~~");
-        github.info(`Pull Requests for ${_repo}: `);
-        github.info(pullRequests);
+        console.log("~~~~~~~~~~~~~~~");
+        console.log(`Pull Requests for ${_repo}: `);
+        console.log(pullRequests);
 
         for (let el of pullRequests) {
             const pullRequestInfo = `${_repo} [${el.number}] ${el.title}`;
