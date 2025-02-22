@@ -1,6 +1,6 @@
 # list-open-pulls
 List open pull requests via GHA
-
+Forked from jkisk/list-open-pulls@v1.0.1
 ## Inputs
 
 ## `token`

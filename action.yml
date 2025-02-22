@@ -1,4 +1,4 @@
-name: 'List Open Pull Request Titles'
+name: 'List PRs'
 description: 'List open pull requests for a given repository'
 icon: git-pull-request
 color: green
