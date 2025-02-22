@@ -9011,17 +9011,17 @@ async function run() {
 
     let _titles = [];
     
-    for (let repo of repos) {
-        let _repo = repo.trim();
-        if (!_repo) {
+    for (let repo___ of repos) {
+        let repo = repo___.trim();
+        if (!repo) {
             continue;
         }
-        if (_repo === "") {
+        if (repo === "") {
             continue;
         }
-        const { data: pullRequests } = await octokit.request('GET /repos/{owner}/{_repo}/pulls?state=open', {
+        const { data: pullRequests } = await octokit.request('GET /repos/{owner}/{repo}/pulls?state=open', {
             owner,
-            repo: _repo,
+            repo,
         });
 
         core.setOutput("dbg", `${pullRequests} ~ ${pullRequests.length}`);
