@@ -15,4 +15,6 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT }}
       - name: echo results
-        run: echo ${{ steps.list.outputs.titles }}
+        run: |
+          echo ${{ steps.list.outputs.titles }}
+          echo ${{ steps.list.outputs.dbg_pullRequests }}
