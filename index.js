@@ -9,7 +9,7 @@ async function run() {
     const octokit = github.getOctokit(myToken);
 
     let _titles = [];
-    let _ids = [];
+    
     for (let repo of repos) {
         let _repo = repo.trim();
         if (!_repo) {
@@ -23,13 +23,9 @@ async function run() {
             repo: _repo,
         });
         for (let el of pullRequests) {
-            _repo.push(_repo);
-            _ids.push(el.number);
-            _titles.push(el.title);
+            _titles.push(_repo +" ["+el.number+"] " + el.title);
         }
     }
-    core.setOutput("repo", _repo);
-    core.setOutput("ids", _ids);
     core.setOutput("titles", _titles);
 }
 
