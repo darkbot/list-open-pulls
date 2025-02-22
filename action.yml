@@ -14,7 +14,8 @@ inputs:
   repo:
     description: 'repos'
     required: true
-    default: ['list-open-pulls']
+    default: 
+      - 'list-open-pulls'
 outputs:
   titles:
     description: 'list of open pr titles'
