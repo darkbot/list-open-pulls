@@ -9,28 +9,27 @@ async function run() {
     const octokit = github.getOctokit(myToken);
 
     let _titles = "";
-    
-    for (let repo of repos) {
-        let _repo = repo.trim();
-        if (!_repo) {
+    let last_dbg = [];    
+    for (let repo___ of repos) {
+        let repo = repo___.trim();
+        if (!repo) {
             continue;
         }
-        if (_repo === "") {
+        if (repo === "") {
             continue;
         }
-        const { data: pullRequests } = await octokit.request('GET /repos/{owner}/{_repo}/pulls?state=open', {
+        const { data: pullRequests } = await octokit.request('GET /repos/{owner}/{repo}/pulls?state=open', {
             owner,
-            repo: _repo,
+            repo,
         });
 
-        core.setOutput("dbg", `${pullRequests} ~ ${pullRequests.length}`);
-
+        last_dbg = `${pullRequests} ~ ${pullRequests.length}`
         for (let el of pullRequests) {
-            const pullRequestInfo = `https://github.com/${owner}/${_repo}/pulls/${el.number} ~ ${el.title}`;
-            _titles += pullRequestInfo + "\n";
-            // _titles.push(pullRequestInfo);
+          const pullRequestInfo = `https://github.com/${owner}/${_repo}/pulls/${el.number} ~ ${el.title}`;
+          _titles += pullRequestInfo + "\n";
         }
-    }
+      }
+    core.setOutput("dbg", last_dbg);
     core.setOutput("titles", _titles);
 }
 

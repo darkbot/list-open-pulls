@@ -9009,8 +9009,8 @@ async function run() {
 
     const octokit = github.getOctokit(myToken);
 
-    let _titles = [];
-    
+    let _titles = "";
+    let last_dbg = [];    
     for (let repo___ of repos) {
         let repo = repo___.trim();
         if (!repo) {
@@ -9024,13 +9024,13 @@ async function run() {
             repo,
         });
 
-        core.setOutput("dbg", `${pullRequests} ~ ${pullRequests.length}`);
-
+        last_dbg = `${pullRequests} ~ ${pullRequests.length}`
         for (let el of pullRequests) {
-            const pullRequestInfo = `${repo} [${el.number}] ${el.title}`;
-            _titles.push(pullRequestInfo);
+          const pullRequestInfo = `https://github.com/${owner}/${_repo}/pulls/${el.number} ~ ${el.title}`;
+          _titles += pullRequestInfo + "\n";
         }
-    }
+      }
+    core.setOutput("dbg", last_dbg);
     core.setOutput("titles", _titles);
 }
 
