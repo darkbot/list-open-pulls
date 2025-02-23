@@ -9026,7 +9026,7 @@ async function run() {
 
         last_dbg = `${pullRequests} ~ ${pullRequests.length}`
         for (let el of pullRequests) {
-          const pullRequestInfo = `https://github.com/${owner}/${repo}/pulls/${el.number} ~ ${el.title}`;
+          const pullRequestInfo = `- https://github.com/${owner}/${repo}/pulls/${el.number} ~ ${el.title}`;
           _titles += pullRequestInfo + "\n";
         }
       }
