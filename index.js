@@ -8,7 +8,7 @@ async function run() {
 
     const octokit = github.getOctokit(myToken);
 
-    let _titles = [];
+    let _titles = "";
     
     for (let repo of repos) {
         let _repo = repo.trim();
@@ -26,8 +26,9 @@ async function run() {
         core.setOutput("dbg", `${pullRequests} ~ ${pullRequests.length}`);
 
         for (let el of pullRequests) {
-            const pullRequestInfo = `${_repo} [${el.number}] ${el.title}`;
-            _titles.push(pullRequestInfo);
+            const pullRequestInfo = `https://github.com/${owner}/${_repo}/pulls/${el.number} ~ ${el.title}`;
+            _titles += pullRequestInfo + "\n";
+            // _titles.push(pullRequestInfo);
         }
     }
     core.setOutput("titles", _titles);
