@@ -9030,8 +9030,10 @@ async function run() {
           _titles += pullRequestInfo + "\n";
         }
       }
-    core.setOutput("dbg", last_dbg);
-    core.setOutput("titles", _titles);
+      fs.appendFileSync(process.env.GITHUB_OUTPUT, `dbg=${last_dbg}\n`)
+      fs.appendFileSync(process.env.GITHUB_OUTPUT, `titles=${_titles}\n`)
+      // core.setOutput("dbg", last_dbg);
+      // core.setOutput("titles", _titles);
 }
 
 run();
